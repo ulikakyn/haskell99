@@ -4,11 +4,14 @@ main = do
   gen <- getStdGen
   putStrLn "input a list"
   input <- getLine
-  rnd_select' gen input
+  putStrLn "how many do you want to select from above list?"
+  count <- getLine
+  --rnd_select' gen input
+  putStrLn $ rnd_select gen input count
 
---rnd_select :: [a] -> Int -> [a]
---let rand_list = take n (randomRs (0, length xs) (mkStdGen 100))
---rnd_select xs n = map
+rnd_select :: StdGen -> String -> String -> String
+rnd_select gen xs n = foldr (\m acc -> (xs !! m) : acc) [] rand_list
+  where rand_list = take (read n) (randomRs (0, length xs-1) gen)
 
 rnd_select' :: StdGen -> String -> IO ()
 rnd_select' gen xs = putStrLn $ [(xs !! fst randn)]
