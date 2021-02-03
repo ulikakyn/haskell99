@@ -12,4 +12,4 @@ mytakeWhile p (x:xs)
 
 pack :: (Eq a) => [a] -> [[a]]
 pack [] = []
-pack l@(x:xs) = (x : mytakeWhile (== x) xs) : pack (mydropWhile (== x) xs)
+pack (x:xs) = (x : mytakeWhile (== x) xs) : pack (mydropWhile (== x) xs)
