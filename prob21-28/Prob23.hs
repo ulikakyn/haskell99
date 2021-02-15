@@ -1,3 +1,7 @@
+module Prob23(
+rnd_select
+) where
+
 import System.Random
 
 main = do
